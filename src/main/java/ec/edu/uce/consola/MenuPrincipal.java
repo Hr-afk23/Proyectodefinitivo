@@ -13,12 +13,16 @@ public class MenuPrincipal {
     private Universidad universidad;
     private List<Facultad> facultades;
     private List<Laboratorio> laboratorios;
-    public MenuPrincipal(List<Usuario> usuariosRegistrados, Scanner scanner,Universidad universidad, List<Facultad> facultades, List<Laboratorio> laboratorios) {
+    private List<Préstamo> préstamos; //
+    private List<Item> items ;
+    public MenuPrincipal(List<Usuario> usuariosRegistrados, Scanner scanner,Universidad universidad, List<Facultad> facultades, List<Laboratorio> laboratorios,List<Préstamo> préstamos,List<Item> items) {
         this.usuariosRegistrados = usuariosRegistrados;
         this.universidad = universidad;
         this.scanner = scanner;
         this.facultades = facultades;
         this.laboratorios = laboratorios;
+        this.préstamos = préstamos;
+        this.items = items;
     }
 
 
@@ -71,7 +75,7 @@ public class MenuPrincipal {
             System.out.println("Credenciales inválidas. Por favor, intente de nuevo.");
             mostrarMenuPrincipal();
         } else {
-            subMenuGeneral subMenuGeneral = new subMenuGeneral(usuarioActivo, usuariosRegistrados,universidad,facultades);
+            subMenuGeneral subMenuGeneral = new subMenuGeneral(usuarioActivo, usuariosRegistrados,universidad,facultades,préstamos,items);
             subMenuGeneral.mostrarSubMenu();
         }
     }
@@ -93,7 +97,7 @@ public class MenuPrincipal {
     }
 
     private void mostrarSubMenuPorUsuario(Usuario usuario) {
-        subMenuGeneral subMenuGeneral = new subMenuGeneral(usuarioActivo, usuariosRegistrados,universidad,facultades);
+        subMenuGeneral subMenuGeneral = new subMenuGeneral(usuarioActivo, usuariosRegistrados,universidad,facultades,préstamos,items);
         subMenuGeneral.mostrarSubMenu();
 
         if (usuario instanceof Docente) {

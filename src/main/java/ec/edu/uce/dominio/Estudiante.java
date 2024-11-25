@@ -17,7 +17,10 @@ public class Estudiante extends Usuario {
     public void setCarrera(String carrera) {
         this.carrera = carrera;
     }
-
+    // Operación específica
+    public void solicitarPrestamo() {
+        System.out.println("Estudiante " + getNombre() + " ha solicitado un préstamo para la carrera: " + carrera);
+    }
     @Override
     public String toString() {
         return super.toString() + ", carrera='" + carrera + '\'' + '}';

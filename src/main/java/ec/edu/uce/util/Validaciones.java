@@ -62,18 +62,21 @@ public class Validaciones {
         return id.matches("\\d{1,4}");
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
+    //Validaciones para Gestionar Prestamo de Items
+    public static boolean esNumerico(String texto) {
+        if (texto == null || texto.isEmpty()) {
+            return false;
+        }
+        try {
+            Integer.parseInt(texto);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+    public static boolean esCadenaValida(String texto) {
+        return texto != null && !texto.trim().isEmpty();
+    }
 }
 
 

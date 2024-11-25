@@ -59,7 +59,14 @@ public class Usuario {
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
+    // Operaciones
+    public boolean iniciarSesion(String correo, String contrasena) {
+        return this.correo.equals(correo) && this.contraseña.equals(contrasena);
+    }
 
+    public void cerrarSesion() {
+        System.out.println("Sesión cerrada para el usuario: " + nombre);
+    }
     @Override
     public String toString() {
         return "Usuario{" +

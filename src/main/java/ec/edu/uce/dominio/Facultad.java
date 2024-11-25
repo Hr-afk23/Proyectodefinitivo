@@ -8,7 +8,7 @@ public class Facultad {
     private String codigoFacultad;
     private String sedeFacultad;
     private List<Laboratorio> laboratorios=new ArrayList<>();
-    private List<Facultad> facultades;
+
 
 
     public Facultad(String nombreFacultad, String codigoFacultad, String sedeFacultad) {
@@ -16,9 +16,9 @@ public class Facultad {
         this.codigoFacultad = codigoFacultad;
         this.sedeFacultad = sedeFacultad;
         this.laboratorios = laboratorios;
-        this.facultades = facultades;
-        
-        
+
+
+
     }
 
     public String getNombreFacultad() {
@@ -62,7 +62,7 @@ public class Facultad {
         this.laboratorios = laboratorios;
     }
 
-    @Override
+
     public String toString() {
         return "Facultad{" +
                 "nombre='" + nombreFacultad + '\'' +

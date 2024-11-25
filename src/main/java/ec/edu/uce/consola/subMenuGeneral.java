@@ -1,12 +1,9 @@
 package ec.edu.uce.consola;
 
-import ec.edu.uce.dominio.Universidad;
-import ec.edu.uce.dominio.Usuario;
-import ec.edu.uce.dominio.Facultad;
-import ec.edu.uce.Main;
+import ec.edu.uce.dominio.*;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class subMenuGeneral {
@@ -15,13 +12,17 @@ public class subMenuGeneral {
     private List<Usuario> usuariosRegistrados;
     private Universidad universidad;
     private List<Facultad> facultades;
+    private List<Préstamo> préstamos; //
+    private List<Item> items ;
 
-    public subMenuGeneral(Usuario usuarioActivo, List<Usuario> usuariosRegistrados,Universidad universidad,List<Facultad> facultades) {
+
+    public subMenuGeneral(Usuario usuarioActivo, List<Usuario> usuariosRegistrados,Universidad universidad,List<Facultad> facultades,List<Préstamo> préstamos,List<Item> items){
         this.usuarioActivo = usuarioActivo;
         this.usuariosRegistrados = usuariosRegistrados;
         this.universidad = universidad;
         this.facultades = facultades;
-
+        this.préstamos = préstamos;
+        this.items = items != null ? items : new ArrayList<>();
     }
 
 
@@ -55,8 +56,8 @@ public class subMenuGeneral {
                     case "2" -> new subMenuGestionarFacultad(universidad,usuarioActivo).mostrarSubMenu();
                     case "3" -> new subMenuGestionarLaboratorio(facultades,usuarioActivo).mostrarSubMenuLaboratorio();
                     case "4" -> System.out.println("Gestionar Item");
-                    case "5" -> System.out.println("Gestionar Préstamo de Ítems");
-                    case "6" -> System.out.println("Gestionar Garantía del Préstamo");
+                    case "5" -> new subMenuPrestamoItem(usuariosRegistrados, items, préstamos).mostrarMenuPrestamo();
+                    case "6" -> new subMenuGestionarGarantiadePrestamo(préstamos).subMenuPrestamo();
                     case "7" -> System.out.println("Gestionar Devolución de Ítems");
                     case "8" -> {
                     System.out.println("Cerrando sesión...");
@@ -94,12 +95,15 @@ public class subMenuGeneral {
 
     private void gestionarPrestamoItems() {
         System.out.println("Accediendo a Gestión de Préstamos...");
-        // Implementar o llamar a la clase correspondiente
+        subMenuPrestamoItem subMenuPrestamoItem = new subMenuPrestamoItem(usuariosRegistrados, items, préstamos);
+        subMenuPrestamoItem.mostrarMenuPrestamo();
+
     }
 
     private void gestionarGarantiaPrestamo() {
         System.out.println("Accediendo a Gestión de Garantía del Préstamo...");
         // Implementar o llamar a la clase correspondiente
+        subMenuGestionarGarantiadePrestamo subMenuPrestamo =new subMenuGestionarGarantiadePrestamo(préstamos);
     }
 
     private void gestionarDevolucionItems() {

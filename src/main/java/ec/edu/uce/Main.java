@@ -3,12 +3,10 @@ package ec.edu.uce;
 import ec.edu.uce.consola.MenuPrincipal;
 import ec.edu.uce.dominio.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
+
 
     public static void main(String[] args) {
 
@@ -51,12 +49,26 @@ public class Main {
 
         //Crear los laboratorios
         List<Laboratorio> laboratorios = new ArrayList<>();
+        //Crear lista de prestamos
+        List<Préstamo> préstamos = new ArrayList<>();
+        // Crear préstamos
+        List<PrestamoItem> listaItemsPrestamo = new ArrayList<>();
+        listaItemsPrestamo.add(new PrestamoItem(2, "Pendiente", ""));
+        boolean sinGarantía = préstamos.add(new Préstamo(1, new Date(), new Date(), "Sin garantía", docente1, listaItemsPrestamo));
+
+
         // Crear el scanner para el menú
         Scanner scanner = new Scanner(System.in);
+        //Crear lista de items
+        List<Item> items = new ArrayList<>(); ;
+// Crear items
+        items.add(new Item("ITM001", "disponible", 10));
+        items.add(new Item("ITM002", "disponible", 5));
+        items.add(new Item("ITM003", "prestado", 0));
 
         // Mostrar el menú principal
         // Crear el objeto MenuPrincipal pasándole la lista de usuarios registrados
-        MenuPrincipal menuPrincipal = new MenuPrincipal(usuariosRegistrados, scanner,universidad,facultades,laboratorios);
+        MenuPrincipal menuPrincipal = new MenuPrincipal(usuariosRegistrados, scanner,universidad,facultades,laboratorios,préstamos,items);
 
         menuPrincipal.mostrarMenuPrincipal();
     }

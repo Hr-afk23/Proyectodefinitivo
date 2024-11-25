@@ -17,7 +17,10 @@ public class Administrador extends Usuario {
     public void setLaboratorioDeTrabajo(String laboratorioDeTrabajo) {
         this.laboratorioDeTrabajo = laboratorioDeTrabajo;
     }
-
+    // Operación específica
+    public void solicitarLaboratorioDeTrabajo() {
+        System.out.println("Administrador " + getNombre() + " ha solicitado información del laboratorio: " + laboratorioDeTrabajo);
+    }
     @Override
     public String toString() {
         return super.toString() + ", laboratorioDeTrabajo='" + laboratorioDeTrabajo + '\'' + '}';

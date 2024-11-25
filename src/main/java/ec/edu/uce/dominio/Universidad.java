@@ -8,12 +8,12 @@ public class Universidad {
     private String ubicacionUniversidad;
     private List<String> sedes;
     private List<Facultad> facultades;
-
+   //constructor
     public Universidad(String nombreUniversidad, String ubicacionUniversidad, List<String> sedes,List<Facultad> facultades) {
         this.nombreUniversidad = nombreUniversidad;
         this.ubicacionUniversidad = ubicacionUniversidad;
         this.sedes = sedes;
-        this.facultades = facultades;
+        this.facultades = new ArrayList<>();
     }
 
     public String getNombreUniversidad() {
@@ -39,4 +39,5 @@ public class Universidad {
     public void eliminarFacultad(Facultad facultad) {
         facultades.remove(facultad);
     }
+
 }

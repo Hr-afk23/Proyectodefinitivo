@@ -17,7 +17,10 @@ public class Docente extends Usuario {
     public void setDepartamento(String departamento) {
         this.departamento = departamento;
     }
-
+    // Operación específica
+    public void solicitarDepartamento() {
+        System.out.println("Docente " + getNombre() + " ha solicitado un cambio al departamento: " + departamento);
+    }
     @Override
     public String toString() {
         return super.toString() + ", departamento='" + departamento + '\'' + '}';
