@@ -1,12 +1,24 @@
 package ec.edu.uce.util;
+import ec.edu.uce.dominio.Facultad;
+
+import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
-
 
 public class Validaciones {
     private static final Scanner scanner = new Scanner(System.in);
     //Validaciones de menu principal
     //Validaciones de subMneuGeneral
+
+    public static boolean validarOpcionMenu(String opcion) {
+        try {
+            int numero = Integer.parseInt(opcion); // Intentar convertir a entero
+            return numero > 0; // Verificar que sea positivo
+        } catch (NumberFormatException e) {
+            return false; // Retorna false si no es un número
+        }
+     }
+
 
         public static boolean validarNombreApellido(String texto) {
             // Primera letra mayúscula, resto minúsculas, sin espacios y hasta 45 caracteres
@@ -26,55 +38,66 @@ public class Validaciones {
             return Pattern.matches(regex, contraseña);
         }
 
-        public static boolean validarOpcionMenu(String opcion) {
-            // Verifica que sea un número válido
-            return opcion.matches("\\d+");
-        }
 
+        //Validaciones Gestionar Facultad
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public static boolean validarCodigoUnico(String codigo, List<Facultad> facultades) {
+        return facultades.stream().noneMatch(facultad -> facultad.getCodigoFacultad().equals(codigo));
     }
+
+    public static Facultad buscarFacultad(String criterio, List<Facultad> facultades) {
+        return facultades.stream()
+                .filter(facultad -> facultad.getNombreFacultad().equalsIgnoreCase(criterio)
+                        || facultad.getCodigoFacultad().equals(criterio))
+                .findFirst()
+                .orElse(null);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

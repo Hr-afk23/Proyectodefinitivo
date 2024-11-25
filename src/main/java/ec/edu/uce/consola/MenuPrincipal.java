@@ -10,11 +10,16 @@ public class MenuPrincipal {
     private List<Usuario> usuariosRegistrados;
     private Usuario usuarioActivo; // Usuario autenticado actualmente
     private Scanner scanner;
-
-    public MenuPrincipal(List<Usuario> usuariosRegistrados, Scanner scanner) {
+    private Universidad universidad;
+    private List<Facultad> facultades;
+    public MenuPrincipal(List<Usuario> usuariosRegistrados, Scanner scanner,Universidad universidad, List<Facultad> facultades) {
         this.usuariosRegistrados = usuariosRegistrados;
+        this.universidad = universidad;
         this.scanner = scanner;
+        this.facultades = facultades;
     }
+
+
 
     public void mostrarMenuPrincipal() {
 
@@ -62,8 +67,9 @@ public class MenuPrincipal {
 
         if (!encontrado) {
             System.out.println("Credenciales inválidas. Por favor, intente de nuevo.");
+            mostrarMenuPrincipal();
         } else {
-            subMenuGeneral subMenuGeneral = new subMenuGeneral(usuarioActivo, usuariosRegistrados);
+            subMenuGeneral subMenuGeneral = new subMenuGeneral(usuarioActivo, usuariosRegistrados,universidad,facultades);
             subMenuGeneral.mostrarSubMenu();
         }
     }
@@ -85,7 +91,7 @@ public class MenuPrincipal {
     }
 
     private void mostrarSubMenuPorUsuario(Usuario usuario) {
-        subMenuGeneral subMenuGeneral = new subMenuGeneral(usuarioActivo, usuariosRegistrados);
+        subMenuGeneral subMenuGeneral = new subMenuGeneral(usuarioActivo, usuariosRegistrados,universidad,facultades);
         subMenuGeneral.mostrarSubMenu();
 
         if (usuario instanceof Docente) {
@@ -98,5 +104,6 @@ public class MenuPrincipal {
             System.out.println("Accediendo al menú para administradores de laboratorio...");
             subMenuGeneral.mostrarSubMenu();
         }
+
     }
 }

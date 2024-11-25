@@ -10,17 +10,17 @@ public class subMenuGestionarUsuario {
     private  List<Usuario> usuariosRegistrados;
     private  Usuario usuarioActivo;
     private Scanner scanner;
+    private Universidad universidad;
+    private List<Facultad> facultades;
 
     public subMenuGestionarUsuario(List<Usuario> usuariosRegistrados, Usuario usuarioActivo) {
         this.usuariosRegistrados = usuariosRegistrados;
         this.usuarioActivo = usuarioActivo;
         this.scanner = new Scanner(System.in); // Inicializar el Scanner aquí
-
     }
 
     public void mostrarMenu() {
         Scanner scanner = new Scanner(System.in);
-
         while (true) {
             System.out.println("\nGestión de Usuarios:");
             System.out.println("1. Modificar Usuario");
@@ -129,7 +129,7 @@ public class subMenuGestionarUsuario {
             usuarioActivo = null; // Resetear el usuario activo.
 
             // Regresar al MenuPrincipal
-            MenuPrincipal menuPrincipal = new MenuPrincipal(usuariosRegistrados, scanner);
+            MenuPrincipal menuPrincipal = new MenuPrincipal(usuariosRegistrados, scanner, universidad, facultades);
 
             menuPrincipal.mostrarMenuPrincipal();
         } else {
@@ -141,7 +141,7 @@ public class subMenuGestionarUsuario {
         Scanner scanner = new Scanner(System.in);
 
         if (!(usuarioActivo instanceof Administrador)) {
-            System.out.println("Acceso denegado. Solo los administradores de laboratorio pueden buscar usuarios.");
+            System.out.println("Acceso denegado. Solo los administradores de laboratorio pueden acceder a esta opcion.");
             return;
         }
 
