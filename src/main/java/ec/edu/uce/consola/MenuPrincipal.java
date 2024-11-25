@@ -12,11 +12,13 @@ public class MenuPrincipal {
     private Scanner scanner;
     private Universidad universidad;
     private List<Facultad> facultades;
-    public MenuPrincipal(List<Usuario> usuariosRegistrados, Scanner scanner,Universidad universidad, List<Facultad> facultades) {
+    private List<Laboratorio> laboratorios;
+    public MenuPrincipal(List<Usuario> usuariosRegistrados, Scanner scanner,Universidad universidad, List<Facultad> facultades, List<Laboratorio> laboratorios) {
         this.usuariosRegistrados = usuariosRegistrados;
         this.universidad = universidad;
         this.scanner = scanner;
         this.facultades = facultades;
+        this.laboratorios = laboratorios;
     }
 
 

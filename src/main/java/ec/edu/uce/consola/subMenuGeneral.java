@@ -15,6 +15,7 @@ public class subMenuGeneral {
     private List<Usuario> usuariosRegistrados;
     private Universidad universidad;
     private List<Facultad> facultades;
+
     public subMenuGeneral(Usuario usuarioActivo, List<Usuario> usuariosRegistrados,Universidad universidad,List<Facultad> facultades) {
         this.usuarioActivo = usuarioActivo;
         this.usuariosRegistrados = usuariosRegistrados;
@@ -52,7 +53,7 @@ public class subMenuGeneral {
             switch (opcion) {
                     case "1" -> new subMenuGestionarUsuario(usuariosRegistrados, usuarioActivo).mostrarMenu();
                     case "2" -> new subMenuGestionarFacultad(universidad,usuarioActivo).mostrarSubMenu();
-                    case "3" -> System.out.println("Gestionar Laboratorio");
+                    case "3" -> new subMenuGestionarLaboratorio(facultades,usuarioActivo).mostrarSubMenuLaboratorio();
                     case "4" -> System.out.println("Gestionar Item");
                     case "5" -> System.out.println("Gestionar Préstamo de Ítems");
                     case "6" -> System.out.println("Gestionar Garantía del Préstamo");
@@ -71,8 +72,6 @@ public class subMenuGeneral {
         subMenuGestionarUsuario.mostrarMenu();
     }
 
-
-
     private void gestionarFacultad() {
         // Llamar a la clase de gestión de facultad
         System.out.println("Accediendo a Gestión de Facultad...");
@@ -84,7 +83,7 @@ public class subMenuGeneral {
 
     private void gestionarLaboratorio() {
         System.out.println("Accediendo a Gestión de Laboratorio...");
-
+        subMenuGestionarLaboratorio subMenuGestionarLaboratorio = new subMenuGestionarLaboratorio(facultades,usuarioActivo);
         // Implementar o llamar a la clase correspondiente
     }
 

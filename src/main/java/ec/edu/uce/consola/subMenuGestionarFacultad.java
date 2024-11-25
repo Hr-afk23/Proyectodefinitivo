@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class subMenuGestionarFacultad {
-    private final Universidad universidad;
+    private Universidad universidad;
     private Usuario usuarioActivo;
     private final Scanner scanner;
     private List<String> historialAcciones; // Lista para almacenar el registro de acciones
@@ -48,6 +48,11 @@ public class subMenuGestionarFacultad {
     }
 
     private void crearFacultad() {
+        if (usuarioActivo == null) {
+            System.out.println("No hay un usuario activo para modificar.");
+            return;
+        }
+
         System.out.print("Ingrese el nombre de la facultad: ");
         String nombre = scanner.nextLine();
         System.out.print("Ingrese el código de la facultad: ");
@@ -77,6 +82,11 @@ public class subMenuGestionarFacultad {
     }
 
     private void modificarFacultad() {
+        if (usuarioActivo == null) {
+            System.out.println("No hay un usuario activo para modificar.");
+            return;
+        }
+
         System.out.print("Ingrese el nombre o código de la facultad a modificar: ");
         String busqueda = scanner.nextLine();
         Facultad facultad = Validaciones.buscarFacultad(busqueda, universidad.getFacultades());
@@ -120,6 +130,10 @@ public class subMenuGestionarFacultad {
 
 
     private void eliminarFacultad() {
+        if (usuarioActivo == null) {
+            System.out.println("No hay un usuario activo para modificar.");
+            return;
+        }
         System.out.print("Ingrese el nombre o código de la facultad a eliminar: ");
         String busqueda = scanner.nextLine();
         Facultad facultad = Validaciones.buscarFacultad(busqueda, universidad.getFacultades());
@@ -132,6 +146,10 @@ public class subMenuGestionarFacultad {
     }
 
     private void generarReporte() {
+        if (usuarioActivo == null) {
+            System.out.println("No hay un usuario activo para modificar.");
+            return;
+        }
         if (historialAcciones.isEmpty()) {
             System.out.println("No se han registrado acciones.");
         } else {

@@ -53,7 +53,14 @@ public class Validaciones {
                 .orElse(null);
     }
 
+    //Validaciones para Gestionar Laboratorios
+    public static boolean validarNombreLaboratorio(String nombre) {
+        return nombre.matches("[A-Z][a-zA-Z ]{0,99}");
+    }
 
+    public static boolean validarIdLaboratorio(String id) {
+        return id.matches("\\d{1,4}");
+    }
 
 
 

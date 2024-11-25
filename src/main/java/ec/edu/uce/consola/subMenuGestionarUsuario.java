@@ -12,6 +12,7 @@ public class subMenuGestionarUsuario {
     private Scanner scanner;
     private Universidad universidad;
     private List<Facultad> facultades;
+    private List<Laboratorio> laboratorios;
 
     public subMenuGestionarUsuario(List<Usuario> usuariosRegistrados, Usuario usuarioActivo) {
         this.usuariosRegistrados = usuariosRegistrados;
@@ -129,7 +130,7 @@ public class subMenuGestionarUsuario {
             usuarioActivo = null; // Resetear el usuario activo.
 
             // Regresar al MenuPrincipal
-            MenuPrincipal menuPrincipal = new MenuPrincipal(usuariosRegistrados, scanner, universidad, facultades);
+            MenuPrincipal menuPrincipal = new MenuPrincipal(usuariosRegistrados, scanner, universidad, facultades,laboratorios);
 
             menuPrincipal.mostrarMenuPrincipal();
         } else {

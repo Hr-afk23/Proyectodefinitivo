@@ -1,35 +1,48 @@
 package ec.edu.uce.dominio;
 
 public class Laboratorio {
-    private String nombre;
-    private Facultad facultad; // Facultad a la que pertenece
+    private String nombreLaboratorio;
+    private String idLaboratorio;
+    private String facultadQuePertenece;
 
-    public Laboratorio(String nombre, Facultad facultad) {
-        this.nombre = nombre;
-        this.facultad = facultad;
+    // Constructor
+    public Laboratorio(String nombreLaboratorio, String idLaboratorio, String facultadQuePertenece) {
+        this.nombreLaboratorio = nombreLaboratorio;
+        this.idLaboratorio = idLaboratorio;
+        this.facultadQuePertenece = facultadQuePertenece;
     }
 
-    public String getNombre() {
-        return nombre;
+    // Getters y Setters
+    public String getNombreLaboratorio() {
+        return nombreLaboratorio;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreLaboratorio(String nombreLaboratorio) {
+        this.nombreLaboratorio = nombreLaboratorio;
     }
 
-    public Facultad getFacultad() {
-        return facultad;
+    public String getIdLaboratorio() {
+        return idLaboratorio;
     }
 
-    public void setFacultad(Facultad facultad) {
-        this.facultad = facultad;
+    public void setIdLaboratorio(String idLaboratorio) {
+        this.idLaboratorio = idLaboratorio;
+    }
+
+    public String getFacultadQuePertenece() {
+        return facultadQuePertenece;
+    }
+
+    public void setFacultadQuePertenece(String facultadQuePertenece) {
+        this.facultadQuePertenece = facultadQuePertenece;
     }
 
     @Override
     public String toString() {
         return "Laboratorio{" +
-                "nombre='" + nombre + '\'' +
-                ", facultad=" + facultad.getNombreFacultad() +
+                "nombreLaboratorio='" + nombreLaboratorio + '\'' +
+                ", idLaboratorio='" + idLaboratorio + '\'' +
+                ", facultadQuePertenece='" + facultadQuePertenece + '\'' +
                 '}';
     }
 }

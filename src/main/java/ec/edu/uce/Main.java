@@ -49,12 +49,14 @@ public class Main {
         // Crear la universidad
         Universidad universidad = new Universidad(nombreUniversidad, ubicacionUniversidad, sedes, facultades);
 
+        //Crear los laboratorios
+        List<Laboratorio> laboratorios = new ArrayList<>();
         // Crear el scanner para el menú
         Scanner scanner = new Scanner(System.in);
 
         // Mostrar el menú principal
         // Crear el objeto MenuPrincipal pasándole la lista de usuarios registrados
-        MenuPrincipal menuPrincipal = new MenuPrincipal(usuariosRegistrados, scanner,universidad,facultades);
+        MenuPrincipal menuPrincipal = new MenuPrincipal(usuariosRegistrados, scanner,universidad,facultades,laboratorios);
 
         menuPrincipal.mostrarMenuPrincipal();
     }
