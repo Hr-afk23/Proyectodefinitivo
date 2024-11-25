@@ -1,5 +1,6 @@
 package ec.edu.uce.consola;
 
+import ec.edu.uce.dominio.Préstamo;
 import ec.edu.uce.dominio.Universidad;
 import ec.edu.uce.dominio.Usuario;
 import ec.edu.uce.dominio.Facultad;
@@ -15,13 +16,15 @@ public class subMenuGeneral {
     private List<Usuario> usuariosRegistrados;
     private Universidad universidad;
     private List<Facultad> facultades;
+    private List<Préstamo> préstamos; //
 
-    public subMenuGeneral(Usuario usuarioActivo, List<Usuario> usuariosRegistrados,Universidad universidad,List<Facultad> facultades) {
+
+    public subMenuGeneral(Usuario usuarioActivo, List<Usuario> usuariosRegistrados,Universidad universidad,List<Facultad> facultades,List<Préstamo> préstamos) {
         this.usuarioActivo = usuarioActivo;
         this.usuariosRegistrados = usuariosRegistrados;
         this.universidad = universidad;
         this.facultades = facultades;
-
+        this.préstamos = préstamos;
     }
 
 
@@ -55,8 +58,8 @@ public class subMenuGeneral {
                     case "2" -> new subMenuGestionarFacultad(universidad,usuarioActivo).mostrarSubMenu();
                     case "3" -> new subMenuGestionarLaboratorio(facultades,usuarioActivo).mostrarSubMenuLaboratorio();
                     case "4" -> System.out.println("Gestionar Item");
-                    case "5" -> System.out.println("Gestionar Préstamo de Ítems");
-                    case "6" -> System.out.println("Gestionar Garantía del Préstamo");
+                    case "5" -> System.out.println();
+                    case "6" -> new subMenuGestionarGarantiadePrestamo(préstamos).subMenuPrestamo();
                     case "7" -> System.out.println("Gestionar Devolución de Ítems");
                     case "8" -> {
                     System.out.println("Cerrando sesión...");
@@ -100,6 +103,7 @@ public class subMenuGeneral {
     private void gestionarGarantiaPrestamo() {
         System.out.println("Accediendo a Gestión de Garantía del Préstamo...");
         // Implementar o llamar a la clase correspondiente
+        subMenuGestionarGarantiadePrestamo subMenuPrestamo =new subMenuGestionarGarantiadePrestamo(préstamos);
     }
 
     private void gestionarDevolucionItems() {

@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 public class Main {
 
+
     public static void main(String[] args) {
 
         // Crear lista de usuarios
@@ -51,12 +52,14 @@ public class Main {
 
         //Crear los laboratorios
         List<Laboratorio> laboratorios = new ArrayList<>();
+        //Crear lista de prestamos
+        List<Préstamo> préstamos = new ArrayList<>();
         // Crear el scanner para el menú
         Scanner scanner = new Scanner(System.in);
 
         // Mostrar el menú principal
         // Crear el objeto MenuPrincipal pasándole la lista de usuarios registrados
-        MenuPrincipal menuPrincipal = new MenuPrincipal(usuariosRegistrados, scanner,universidad,facultades,laboratorios);
+        MenuPrincipal menuPrincipal = new MenuPrincipal(usuariosRegistrados, scanner,universidad,facultades,laboratorios,préstamos);
 
         menuPrincipal.mostrarMenuPrincipal();
     }
