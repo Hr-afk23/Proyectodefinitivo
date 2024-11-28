@@ -40,4 +40,16 @@ public class Universidad {
         facultades.remove(facultad);
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Universidad{")
+          .append("nombreUniversidad='").append(nombreUniversidad).append('\'')
+          .append(", ubicacionUniversidad='").append(ubicacionUniversidad).append('\'')
+          .append(", sedes=").append(sedes)
+          .append(", facultades=").append(facultades)
+          .append('}');
+        return sb.toString();
+    }
+
 }
