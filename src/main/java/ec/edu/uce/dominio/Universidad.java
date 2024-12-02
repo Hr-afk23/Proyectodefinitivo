@@ -15,7 +15,13 @@ public class Universidad {
         this.sedes = sedes;
         this.facultades = new ArrayList<>();
     }
-
+    // Constructor que toma un objeto Universidad  
+    public Universidad(Universidad otraUniversidad) {  
+        this.nombreUniversidad = otraUniversidad.nombreUniversidad;  
+        this.ubicacionUniversidad = otraUniversidad.ubicacionUniversidad;  
+        this.sedes = new ArrayList<>(otraUniversidad.sedes); // C lista de sedes  
+        this.facultades = new ArrayList<>(otraUniversidad.facultades); // C lista de facultades  
+    }  
     public String getNombreUniversidad() {
         return nombreUniversidad;
     }
