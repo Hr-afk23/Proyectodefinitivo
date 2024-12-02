@@ -14,9 +14,14 @@ public class Usuario {
         this.correo = correo;
         this.contraseña = contraseña;
     }
-
-    // Getters, Setters y toString...
-
+     // Constructor que toma un objeto Usuario  
+    public Usuario(Usuario otroUsuario) {  
+        this.id = otroUsuario.id;  
+        this.nombre = otroUsuario.nombre;  
+        this.apellido = otroUsuario.apellido;  
+        this.correo = otroUsuario.correo;  
+        this.contraseña = otroUsuario.contraseña; // Prec. contraseña  
+    }  
 
 
 // Getters y Setters
