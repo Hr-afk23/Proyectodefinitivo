@@ -16,11 +16,16 @@ public class Facultad {
         this.codigoFacultad = codigoFacultad;
         this.sedeFacultad = sedeFacultad;
         this.laboratorios = laboratorios;
-
-
-
     }
+     // Constructor que toma un objeto Facultad  
+    public Facultad(Facultad otraFacultad) {  
+        this.nombreFacultad = otraFacultad.nombreFacultad;  
+        this.codigoFacultad = otraFacultad.codigoFacultad;  
+        this.sedeFacultad = otraFacultad.sedeFacultad;  
+        this.laboratorios = new ArrayList<>(otraFacultad.laboratorios); // Copia la lista de laboratorios  
+    }  
 
+    
     public String getNombreFacultad() {
         return nombreFacultad;
     }
