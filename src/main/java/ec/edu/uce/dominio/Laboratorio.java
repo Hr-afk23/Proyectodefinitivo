@@ -17,6 +17,18 @@ public class Laboratorio {
         this.items = new ArrayList<>(); // Inicialización de la lista de ítems
         this.prestamos = new ArrayList<>(); // Inicialización de la lista de préstamos
     }
+     // Constructor que toma un objeto Laboratorio  
+    public Laboratorio(Laboratorio otroLaboratorio) {  
+        this.nombreLaboratorio = otroLaboratorio.nombreLaboratorio;  
+        this.idLaboratorio = otroLaboratorio.idLaboratorio;  
+        this.facultadQuePertenece = otroLaboratorio.facultadQuePertenece;  
+
+        // Copia profunda de la lista de ítems  
+        this.items = new ArrayList<>(otroLaboratorio.items); // Crea nueva lista y copia los elementos  
+        // Copia profunda de la lista de préstamos  
+        this.prestamos = new ArrayList<>(otroLaboratorio.prestamos); // Crea nueva lista y copia los elementos  
+    }  
+
 
     // Getters y Setters
     public String getNombreLaboratorio() {
