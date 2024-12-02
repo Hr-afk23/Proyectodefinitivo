@@ -11,6 +11,12 @@ public class Item {
         this.estado = estado;
         this.cantidadDisponible = cantidadDisponible;
     }
+    // Constructor que toma un objeto Item  
+    public Item(Item otroItem) {  
+        this.codigo = otroItem.codigo;  
+        this.estado = otroItem.estado;  
+        this.cantidadDisponible = otroItem.cantidadDisponible;  
+    }  
 
     // Getters y Setters
     public String getCodigo() {
