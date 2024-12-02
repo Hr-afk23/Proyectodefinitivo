@@ -9,7 +9,7 @@ public class Préstamo {
     private Date fechaFin;
     private String garantia;
     private Usuario usuario;
-    private double Montogarantía;
+    private double montoGarantía;
 
 
     // Constructor
@@ -19,8 +19,18 @@ public class Préstamo {
         this.fechaFin = fechaFin;
         this.garantia = garantia;
         this.usuario = usuario;
+        this.montoGarantía =0;
     }
-
+    // Constructor que toma un objeto Préstamo  
+    public Préstamo(Préstamo otroPrestamo) {  
+        this.id = otroPrestamo.id;  
+        this.fechaInicio = otroPrestamo.fechaInicio != null ? new Date(otroPrestamo.fechaInicio.getTime()) : null; // Copia de Date  
+        this.fechaFin = otroPrestamo.fechaFin != null ? new Date(otroPrestamo.fechaFin.getTime()) : null; // Copia de Date  
+        this.garantia = otroPrestamo.garantia;  
+        this.usuario = otroPrestamo.usuario;  
+        this.Montogarantía = otroPrestamo.Montogarantía; // Copia del monto de garantía  
+    }  
+    
     // Getters y Setters
     public int getId() {
         return id;
