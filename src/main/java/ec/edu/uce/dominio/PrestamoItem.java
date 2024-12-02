@@ -11,6 +11,12 @@ public class PrestamoItem {
         this.devolucion = devolucion;
         this.reporte = reporte;
     }
+     // Constructor que toma un objeto PrestamoItem  
+    public PrestamoItem(PrestamoItem otroPrestamoItem) {  
+        this.cantidad = otroPrestamoItem.cantidad;  
+        this.devolucion = otroPrestamoItem.devolucion;  
+        this.reporte = otroPrestamoItem.reporte;  
+    }  
 
     // Getters y Setters
     public int getCantidad() {
