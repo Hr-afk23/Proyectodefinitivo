@@ -8,6 +8,11 @@ public class Estudiante extends Usuario {
         super(id, nombre, apellido, correo, contraseña);
         this.carrera = carrera;
     }
+     // Constructor que toma un objeto Usuario  
+    public Estudiante(Usuario usuario, String carrera) {  
+        super(usuario.getId(), usuario.getNombre(), usuario.getApellido(), usuario.getCorreo(), usuario.getContraseña());  
+        this.carrera = carrera;  
+    }  
 
     // Getter y Setter
     public String getCarrera() {
