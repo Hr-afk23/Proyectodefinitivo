@@ -8,6 +8,11 @@ public class Administrador extends Usuario {
         super(id, nombre, apellido, correo, contraseña);
         this.laboratorioDeTrabajo = laboratorioDeTrabajo;
     }
+     // Constructor que toma un objeto Usuario  
+    public Administrador(Usuario usuario, String laboratorioDeTrabajo) {  
+        super(usuario.getId(), usuario.getNombre(), usuario.getApellido(), usuario.getCorreo(), usuario.getContraseña());  
+        this.laboratorioDeTrabajo = laboratorioDeTrabajo;  
+    }  
 
     // Getter y Setter
     public String getLaboratorioDeTrabajo() {
