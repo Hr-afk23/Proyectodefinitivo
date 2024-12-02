@@ -8,7 +8,12 @@ public class Docente extends Usuario {
         super(id, nombre, apellido, correo, contraseña);
         this.departamento = departamento;
     }
-
+    // Constructor que toma objeto Usuario  
+    public Docente(Usuario usuario, String departamento) {  
+        super(usuario.getId(), usuario.getNombre(), usuario.getApellido(), usuario.getCorreo(), usuario.getContraseña());  
+        this.departamento = departamento;  
+    }  
+    
     // Getter y Setter
     public String getDepartamento() {
         return departamento;
