@@ -77,6 +77,37 @@ public class Validaciones {
     public static boolean esCadenaValida(String texto) {
         return texto != null && !texto.trim().isEmpty();
     }
+
+    //Validaciones para Gestionar Garantía del Préstamo 
+    
+     // ID de préstamo válido
+    public static int obtenerIdPrestamo(Scanner scanner) {
+        int id;
+        while (true) {
+            try {
+                id = Integer.parseInt(scanner.nextLine());
+                break; // Si se obtiene un número válido, salimos del ciclo
+            } catch (NumberFormatException e) {
+                System.out.print("Por favor, ingrese un ID válido (número entero): ");
+            }
+        }
+        return id;
+    }
+
+    // Monto de garantía válido
+    public static double obtenerMonto(Scanner scanner) {
+        double monto;
+        while (true) {
+            try {
+                monto = Double.parseDouble(scanner.nextLine());
+                if (monto < 0) throw new NumberFormatException(); // Validación de monto negativo
+                break; // Si el monto es válido, salimos del ciclo
+            } catch (NumberFormatException e) {
+                System.out.print("Por favor, ingrese un monto válido (número positivo): ");
+            }
+        }
+        return monto;
+
 }
 
 
